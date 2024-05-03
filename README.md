@@ -27,7 +27,24 @@ Make sure to install the exact software versions specified in the the exercise s
 
 Download Moses for post-processing:
 
-    ./scripts/download_install_packages.sh
+    ./scripts/download_moses.sh
+
+
+Add configs files for post and pre norm:
+1) copy from the regular config fiel
+	deen_transformer_post.yaml, deen_transformer_pre
+2) change the following parameter accordingly:
+	eg. 
+	name: "deen_transformer_pre"
+	model_dir: "models/deen_transformer_pre"
+	use_cuda: True
+	encoder-->layer_norm: "pre" 
+	decoder-->layer_norm: "pre"
+
+
+Modify the model_name in scripts/train.sh respectively:
+	model_name=deen_transformer_post
+	model_name=deen_transformer_pre
 
 
 Train a model:
